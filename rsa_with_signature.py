@@ -20,8 +20,8 @@ e = 65537
 dA = n.inverse(e, phiA)
 
 # El mensaje
-msg = "Hola Mundo"
-print("Mensaje: ", msg)
+msg = "Mensaje de prueba"
+print("Mensaje: ", msg, "\n")
 
 # Hash del mensaje
 hash_msg = SHA256.new(msg.encode("utf-8")).digest()
@@ -31,7 +31,7 @@ m = int.from_bytes(hash_msg, byteorder="big")
 
 # Firma del mensaje: se cifra el hash con la clave privada de Alice
 signature = pow(m, dA, nA)
-print("Firma: ", signature)
+print("Firma: ", signature, "\n")
 
 # Para verificar la firma, el receptor (o cualquier parte) usa la clave pública de Alice
 # Se eleva la firma a la potencia de e modulo nA
